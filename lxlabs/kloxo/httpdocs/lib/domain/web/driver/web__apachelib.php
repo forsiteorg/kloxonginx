@@ -15,6 +15,7 @@ static function uninstallMe()
 	if (file_exists("/etc/init.d/httpd")) {
 		lunlink("/etc/init.d/httpd");
 	}
+	
 	lxshell_return("service", "nginx", "stop");
 	lxshell_return("rpm", "-e", "--nodeps", "nginx");
 	if (file_exists("/etc/init.d/nginx")) {
