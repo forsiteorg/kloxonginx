@@ -26,9 +26,6 @@ static function installMe()
 {
 	global $gbl, $sgbl, $login, $ghtml;
 
-	lxshell_return("rpm -ihv http://dl.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm");
-	lxshell_return("rpm -ihv http://centos.alt.ru/repository/centos/5/i386/centalt-release-5-3.noarch.rpm");
-
 	$ret = lxshell_return("yum", "-y", "install", "httpd", "mod_ssl", "mod_rpaf");
 
 	if ($ret) { throw new lxexception('install_httpd_failed', 'parent'); }
